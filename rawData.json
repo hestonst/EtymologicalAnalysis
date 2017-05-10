@@ -1,0 +1,533 @@
+var rawData =
+{
+  "Internet Chat; English Speaker": {
+      "romance": {
+          "Italian": 36,
+          "Spanish": 21,
+          "Latin": 766,
+          "Catalan": 3,
+          "Romance": 1,
+          "French": 650,
+          "Portuguese": 8
+      },
+      "germanic": {
+          "German": 94,
+          "Norwegian": 1,
+          "Dutch": 36,
+          "Swedish": 1,
+          "Icelandic": 2,
+          "Scandinavian": 28,
+          "Gothic": 2,
+          "Yiddish": 5,
+          "Saxon": 4,
+          "Old English": 894,
+          "Scots": 1,
+          "Flemish": 5,
+          "Norse": 88,
+          "Germanic": 54
+      },
+      "other_Count": 174,
+      "other": {
+          "Central": 1,
+          "Javanese": 1,
+          "Mandarin": 4,
+          "Turkish": 3,
+          "Nepali": 1,
+          "Arabic": 16,
+          "Greek": 141,
+          "Haitian": 1,
+          "Malayalam": 1,
+          "Hindi": 4,
+          "Tamil": 1,
+          "Persian": 6,
+          "Malay": 2,
+          "Creole": 1,
+          "Chinese": 5,
+          "Japanese": 1,
+          "Russian": 1,
+          "Egyptian": 4
+      },
+      "romance_Count": 897,
+      "germanic_Count": 1076,
+      "word_count_with_redundancies": 48670,
+      "total_Count": 2147
+  },
+  "Internet Chat; German Speaker": {
+      "romance": {
+          "Italian": 7,
+          "French": 81,
+          "Romanian": 2,
+          "Latin": 126,
+          "Spanish": 15
+      },
+      "germanic": {
+          "Saxon": 1,
+          "German": 12,
+          "Dutch": 3,
+          "Scots": 1,
+          "Old English": 139,
+          "Flemish": 1,
+          "Scandinavian": 1,
+          "Norse": 6,
+          "Germanic": 6
+      },
+      "other_Count": 27,
+      "other": {
+          "Arabic": 1,
+          "Mandarin": 4,
+          "Persian": 2,
+          "Turkish": 2,
+          "Chinese": 6,
+          "Japanese": 2,
+          "Greek": 19,
+          "Malay": 1,
+          "Tagalog": 1,
+          "Bulgarian": 2
+      },
+      "romance_Count": 141,
+      "germanic_Count": 161,
+      "word_count_with_redundancies": 2686,
+      "total_Count": 329
+  },
+  "Internet Chat; Portuguese Speaker": {
+      "romance": {
+          "Italian": 15,
+          "Spanish": 9,
+          "Latin": 300,
+          "Catalan": 3,
+          "French": 254,
+          "Portuguese": 3
+      },
+      "germanic": {
+          "Saxon": 4,
+          "Old English": 347,
+          "Dutch": 4,
+          "Norwegian": 1,
+          "German": 27,
+          "Scandinavian": 9,
+          "Gothic": 1,
+          "Norse": 26,
+          "Germanic": 18
+      },
+      "other_Count": 52,
+      "other": {
+          "Arabic": 4,
+          "Mandarin": 4,
+          "Persian": 1,
+          "Turkish": 1,
+          "Chinese": 5,
+          "Japanese": 2,
+          "Greek": 42,
+          "Hindi": 1
+      },
+      "romance_Count": 344,
+      "germanic_Count": 393,
+      "word_count_with_redundancies": 6546,
+      "total_Count": 789
+  },
+  "Internet Chat; Spanish Speaker": {
+    "romance": {
+      "Italian": 16,
+      "Portuguese": 1,
+      "Catalan": 1,
+      "Latin": 314,
+      "French": 263,
+      "Spanish": 9
+    },
+    "germanic": {
+      "Norse": 39,
+      "Norwegian": 2,
+      "Dutch": 4,
+      "Old English": 334,
+      "Flemish": 1,
+      "Scandinavian": 8,
+      "Saxon": 2,
+      "German": 33,
+      "Germanic": 23
+    },
+    "other_Count": 51,
+    "other": {
+      "Arabic": 5,
+      "Mandarin": 1,
+      "Turkish": 2,
+      "Chinese": 1,
+      "Greek": 43,
+      "Czech": 1
+    },
+    "romance_Count": 366,
+    "germanic_Count": 400,
+    "word_count_with_redundancies": 3984,
+    "total_Count": 817
+  },
+  "Internet Chat; Russian Speaker": {
+      "romance": {
+          "Italian": 11,
+          "French": 294,
+          "Catalan": 2,
+          "Latin": 357,
+          "Spanish": 2
+      },
+      "germanic": {
+          "German": 26,
+          "Old English": 367,
+          "Dutch": 8,
+          "Scots": 1,
+          "Scandinavian": 7,
+          "Norse": 28,
+          "Germanic": 17
+      },
+      "other_Count": 64,
+      "other": {
+          "Arabic": 2,
+          "Mandarin": 2,
+          "Persian": 1,
+          "Malay": 1,
+          "Chinese": 2,
+          "Russian": 4,
+          "Greek": 57
+      },
+      "romance_Count": 394,
+      "germanic_Count": 420,
+      "word_count_with_redundancies": 9469,
+      "total_Count": 878
+  },
+  "Internet Chat; Chinese-Dutch Speaker": {
+      "romance": {
+          "Italian": 17,
+          "French": 410,
+          "Portuguese": 1,
+          "Catalan": 1,
+          "Latin": 497,
+          "Spanish": 5
+      },
+      "germanic": {
+          "Saxon": 1,
+          "Old English": 443,
+          "Dutch": 11,
+          "Scots": 2,
+          "Flemish": 1,
+          "German": 45,
+          "Scandinavian": 7,
+          "Gothic": 3,
+          "Norse": 46,
+          "Germanic": 34
+      },
+      "other_Count": 90,
+      "other": {
+          "Mandarin": 9,
+          "Turkish": 1,
+          "Korean": 1,
+          "Burmese": 2,
+          "Hindi": 3,
+          "Arabic": 8,
+          "Persian": 3,
+          "Malay": 1,
+          "Chinese": 9,
+          "Japanese": 3,
+          "Russian": 3,
+          "Greek": 64,
+          "Urdu": 1
+      },
+      "romance_Count": 571,
+      "germanic_Count": 526,
+      "word_count_with_redundancies": 20637,
+      "total_Count": 1187
+  },
+
+  "Internet Chat; User Data": {
+      "romance": {
+          "Italian": 31,
+          "Spanish": 21,
+          "Latin": 721,
+          "Catalan": 2,
+          "French": 594,
+          "Portuguese": 1
+      },
+      "germanic": {
+          "German": 77,
+          "Norse": 58,
+          "Dutch": 18,
+          "Swedish": 1,
+          "Norwegian": 2,
+          "Scandinavian": 16,
+          "Gothic": 4,
+          "Yiddish": 1,
+          "Saxon": 2,
+          "Old English": 569,
+          "Danish": 1,
+          "Scots": 1,
+          "Flemish": 1,
+          "Germanic": 54
+      },
+      "other_Count": 117,
+      "other": {
+          "Mandarin": 2,
+          "Turkish": 4,
+          "Arabic": 9,
+          "Greek": 87,
+          "Hindi": 1,
+          "Hungarian": 1,
+          "Persian": 3,
+          "Malay": 1,
+          "Chinese": 6,
+          "Japanese": 4,
+          "Russian": 8,
+          "Czech": 3
+      },
+      "romance_Count": 847,
+      "germanic_Count": 708,
+      "word_count_with_redundancies": 26753,
+      "total_Count": 1672
+  },
+
+    "Internet Chat; French Speaker": {
+        "romance": {
+            "Italian": 3,
+            "Latin": 62,
+            "French": 57
+        },
+        "germanic": {
+            "Norse": 9,
+            "German": 3,
+            "Old English": 55,
+            "Germanic": 3
+        },
+        "other_Count": 4,
+        "other": {
+            "Greek": 4
+        },
+        "romance_Count": 69,
+        "germanic_Count": 63,
+        "word_count_with_redundancies": 700,
+        "total_Count": 136
+    },
+    "Academic \n Writing; French Speaker": {
+        "romance": {
+            "Italian": 5,
+            "French": 257,
+            "Latin": 358,
+            "Spanish": 1
+        },
+        "germanic": {
+            "Norse": 9,
+            "German": 6,
+            "Dutch": 3,
+            "Old English": 186,
+            "Scandinavian": 1,
+            "Germanic": 4
+        },
+        "other_Count": 47,
+        "other": {
+            "Chinese": 1,
+            "Mandarin": 1,
+            "Greek": 45,
+            "Turkish": 1
+        },
+        "romance_Count": 380,
+        "germanic_Count": 200,
+        "word_count_with_redundancies": 5070,
+        "total_Count": 627
+    },
+    "Academic \n Writing; Chinese Speaker": {
+        "romance": {
+            "Italian": 5,
+            "Latin": 267,
+            "French": 186,
+            "Catalan": 1
+        },
+        "germanic": {
+            "German": 14,
+            "Old English": 111,
+            "Scandinavian": 1,
+            "Norse": 10,
+            "Germanic": 10
+        },
+        "other_Count": 42,
+        "other": {
+            "Chinese": 2,
+            "Mandarin": 2,
+            "Greek": 40,
+            "Vietnamese": 1
+        },
+        "romance_Count": 288,
+        "germanic_Count": 129,
+        "word_count_with_redundancies": 7676,
+        "total_Count": 459
+    },
+    "Academic \n Writing; User Data": {
+      "romance": {
+        "Italian": 8,
+        "Latin": 307,
+        "French": 241,
+        "Spanish": 2
+      },
+      "germanic": {
+        "Saxon": 1,
+        "Norwegian": 1,
+        "Dutch": 1,
+        "Scots": 2,
+        "Old English": 134,
+        "Flemish": 1,
+        "German": 15,
+        "Scandinavian": 1,
+        "Gothic": 1,
+        "Norse": 15,
+        "Germanic": 7
+      },
+      "other_Count": 43,
+      "other": {
+        "Arabic": 1,
+        "Greek": 41,
+        "Persian": 1,
+        "Czech": 1
+      },
+      "romance_Count": 341,
+      "germanic_Count": 157,
+      "word_count_with_redundancies": 3029,
+      "total_Count": 541
+    },
+    "Academic \n Writing; English Speaker": {
+        "romance": {
+            "Italian": 44,
+            "Spanish": 12,
+            "French": 1081,
+            "Catalan": 3,
+            "Latin": 1541,
+            "Portuguese": 3
+        },
+        "germanic": {
+            "Swedish": 4,
+            "German": 68,
+            "Frisian": 1,
+            "Dutch": 23,
+            "Scandinavian": 16,
+            "Gothic": 1,
+            "Icelandic": 1,
+            "Old English": 519,
+            "Scots": 1,
+            "Flemish": 2,
+            "Norse": 51,
+            "Germanic": 43
+        },
+        "other_Count": 275,
+        "other": {
+            "Chinese": 3,
+            "Mandarin": 3,
+            "Persian": 2,
+            "Turkish": 1,
+            "Arabic": 14,
+            "Russian": 4,
+            "Egyptian": 1,
+            "Czech": 1,
+            "Greek": 253,
+            "Hindi": 1
+        },
+        "romance_Count": 1717,
+        "germanic_Count": 643,
+        "word_count_with_redundancies": 183419,
+        "total_Count": 2635
+    },
+
+    "Academic \n Writing; German Speaker": {
+        "romance": {
+            "Italian": 3,
+            "French": 156,
+            "Latin": 215,
+            "Spanish": 1
+        },
+        "germanic": {
+            "Norse": 6,
+            "German": 7,
+            "Dutch": 1,
+            "Old English": 80,
+            "Germanic": 4
+        },
+        "other_Count": 25,
+        "other": {
+            "Arabic": 1,
+            "Greek": 23,
+            "Egyptian": 1
+        },
+        "romance_Count": 231,
+        "germanic_Count": 92,
+        "word_count_with_redundancies": 2548,
+        "total_Count": 348
+    },
+    "Academic \n Writing; Russian Speaker": {
+        "romance": {
+            "Italian": 13,
+            "Latin": 342,
+            "French": 252
+        },
+        "germanic": {
+            "Norse": 14,
+            "German": 9,
+            "Dutch": 3,
+            "Old English": 110,
+            "Flemish": 1,
+            "Scandinavian": 1,
+            "Germanic": 8
+        },
+        "other_Count": 47,
+        "other": {
+            "Arabic": 3,
+            "Greek": 46
+        },
+        "romance_Count": 376,
+        "germanic_Count": 129,
+        "word_count_with_redundancies": 4754,
+        "total_Count": 552
+    },
+
+    "Academic \n Writing; Portuguese Speaker": {
+        "romance": {
+            "Italian": 7,
+            "Portuguese": 1,
+            "French": 198,
+            "Latin": 324,
+            "Spanish": 6
+        },
+        "germanic": {
+            "German": 18,
+            "Old English": 88,
+            "Dutch": 4,
+            "Danish": 1,
+            "Scandinavian": 1,
+            "Norse": 7,
+            "Germanic": 12
+        },
+        "other_Count": 51,
+        "other": {
+            "Arabic": 2,
+            "Japanese": 1,
+            "Greek": 48,
+            "Chinese": 1
+        },
+        "romance_Count": 358,
+        "germanic_Count": 104,
+        "word_count_with_redundancies": 4273,
+        "total_Count": 513
+    },
+    "Academic \n Writing; Spanish Speaker": {
+        "romance": {
+            "Italian": 6,
+            "Latin": 216,
+            "French": 164
+        },
+        "germanic": {
+            "German": 5,
+            "Old English": 57,
+            "Dutch": 1,
+            "Norse": 4,
+            "Germanic": 4
+        },
+        "other_Count": 34,
+        "other": {
+            "Greek": 34
+        },
+        "romance_Count": 235,
+        "germanic_Count": 64,
+        "word_count_with_redundancies": 2124,
+        "total_Count": 333
+    }
+}
