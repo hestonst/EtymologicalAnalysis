@@ -1,4 +1,5 @@
 import EtymTagger
+import pickle
 from nltk import pos_tag, word_tokenize
 
 
@@ -46,8 +47,15 @@ def readFromFacebook(namesArray, filepathIn, filePathOut):
     """
     import ReadFacebookDOM
     allMessages = ReadFacebookDOM.readInfo(namesArray, filepathIn)
-    parseEtymologies(allMessages, filePathOut)
+    with open(filePathOut+".bin", "wb") as f:
+        pickle.dump(allMessages, f, pickle.HIGHEST_PROTOCOL)
+        f.close()
 
+
+def parseWordsFromFacebook(fileOfAllMessages,filePathOut):
+    with open(fileOfAllMessages, "rb") as f:
+        allMessages = pickle.load(f)
+        parseEtymologies(allMessages, filePathOut)
 
 def readFromTXT(filepathIn, filePathOut):
     """
@@ -70,6 +78,8 @@ def parseEtymologies(listOfMessages, filePathOut):
         listOfMessages - the location of the facebook message .htm
     """
     outFile = open(filePathOut, 'w')
+    
+    print("Tagging and filtering unique relevent words from messages.")
 
     releventWordClasses = ["JJ", "NN", "NNS", "RB", "VB", "VBP"]
     # nltk.help.upenn_tagset():
@@ -99,7 +109,7 @@ def parseEtymologies(listOfMessages, filePathOut):
             wordCountInOriginalDocument += 1
             if str(pos_tag([word])[0][1]) in releventWordClasses:
                 setOfWords.add(word)
-
+    print("Webscraping Etymologies")
     etymologyDict = EtymTagger.produceReport(setOfWords)
 
     for category in etymologyDict.keys():

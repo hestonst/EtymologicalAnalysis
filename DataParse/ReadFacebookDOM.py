@@ -1,6 +1,5 @@
-import re
+import re, os, DetectLanguage
 from html.entities import name2codepoint
-import DetectLanguage
 
 def readInfo(namesArray, filepath):
     """
@@ -11,23 +10,31 @@ def readInfo(namesArray, filepath):
     @param filepath -- to the messages.htm provided by the facebook download.
     @return The plain text, as a Unicode string, if necessary.
     """
-    file = open(filepath, "r")
-    dom = file.read()
-    dom = unescape(dom)
-    file.close()
-
-    regex = re.compile('<div class="message_header"><span class="user">[^<]*</span><span class="meta">[^<]*</span></div></div><p>[^<]*')
-    listOfMessages = regex.findall(dom)
-
+    releventMessages = []
     regex = re.compile('<div class="message_header"><span class="user">[^<]*')
     regex2 = re.compile('<p>[^<]*')
+    regex1 = re.compile('<div class="message_header"><span class="user">[^<]*</span><span class="meta">[^<]*</span></div></div><p>[^<]*')
+    if not filepath[len(filepath)-1] == "/":
+        filepath += "/"
+    print("Reading Facebook Converstations From " + (filepath))
 
-    releventMessages = []
-    for subDom in listOfMessages:
-        name = regex.findall(subDom)[0][47:]
-        message = regex2.findall(subDom)[0][3:]
-        if (name in namesArray and DetectLanguage.detect_language(message) == "english"):
-            releventMessages += [message]
+    for filename in os.listdir(filepath):
+        
+        file = open(filepath + filename, "r")
+        dom = file.read()
+        dom = unescape(dom)
+        file.close()
+
+        listOfMessages = regex1.findall(dom)
+
+
+        for subDom in listOfMessages:
+            name = regex.findall(subDom)[0][47:]
+            message = regex2.findall(subDom)[0][3:]
+            
+            if (name in namesArray and DetectLanguage.detect_language(message) == "english"):
+                releventMessages += [message]
+    print("Read " + str(len(releventMessages)) + " messages.")
     return releventMessages
 
 

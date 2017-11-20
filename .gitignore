@@ -2,3 +2,8 @@
 DataParse/CountGrammaticalTags.py
 
 .DS_Store
+*.pyc
+*.bin
+DataParse/output.txt
+DataParse/test.py
+DataParse/test2.py

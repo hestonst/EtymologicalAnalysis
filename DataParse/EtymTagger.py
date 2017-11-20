@@ -59,7 +59,7 @@ def scrapeEtymology(word):
         etymInfo = theText[blockNdx:blockNdx+400]
     except:
         print("Error: Connection to Server Cannot Be Established" \
-        + " Scrapping Word: " + word)
+              + " Scrapping Word: " + word)
     return etymInfo
 
 def testLanguageGroup(etym, languageGroup):
@@ -111,10 +111,8 @@ def produceReport(setOfWords):
             cumulativeEtymologyCountDict[languageGroup + "_Count"] += 1
             for language in individualEtymologyCountDict[languageGroup]:
                 if language in cumulativeEtymologyCountDict[languageGroup]:
-                    print("2" + word)
                     cumulativeEtymologyCountDict[languageGroup][language] += 1
                 else:
-                    print("2" + word)
                     cumulativeEtymologyCountDict[languageGroup][language] = 1
 
     for word in setOfWords:
